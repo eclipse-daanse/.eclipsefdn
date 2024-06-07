@@ -45,6 +45,20 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
     },
+    orgs.newRepo('.github') {
+      allow_merge_commit: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      description: "github organisation repository, defaults for all other daanse Repositories",
+      has_wiki: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
     orgs.newRepo('org.eclipse.daanse.common') {
       allow_squash_merge: false,
       allow_update_branch: false,
