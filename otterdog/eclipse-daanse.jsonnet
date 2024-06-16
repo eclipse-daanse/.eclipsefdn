@@ -23,10 +23,10 @@ orgs.newOrg('eclipse-daanse') {
       value: "pass:bots/technology.daanse/gpg/secret-subkeys.asc",
     },
     orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
-      value: "pass:bots/technology.daanse/oss.sonatype.org/password",
+      value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-password",
     },
     orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
-      value: "pass:bots/technology.daanse/oss.sonatype.org/username",
+      value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-username",
     },
   ],
   _repositories+:: [
