@@ -148,52 +148,6 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
     },
-    orgs.newRepo('org.eclipse.daanse.model') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the core models",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.model",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.rolap.model') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the rolap models",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.rolap.model",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
     orgs.newRepo('org.eclipse.daanse.rolap.mapping') {
       allow_squash_merge: false,
       allow_update_branch: false,
