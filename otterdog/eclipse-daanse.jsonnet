@@ -1,6 +1,41 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
+
+local daanseBranchProtectionRule(branchName) = orgs.newBranchProtectionRule(branchName) {
+  required_approving_review_count: 0,
+  requires_linear_history: true,
+  requires_strict_status_checks: true,
+};
+
+local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) {
+  allow_squash_merge: false,
+  allow_update_branch: false,
+  default_branch: default_branch,
+  delete_branch_on_merge: false,
+  dependabot_security_updates_enabled: true,
+  has_wiki: false,
+  homepage: "https://www.daanse.org",
+  web_commit_signoff_required: false,
+  secrets: [
+    orgs.newRepoSecret('SONAR_TOKEN') {
+      value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
+    },
+  ],
+  branch_protection_rules: [
+    daanseBranchProtectionRule($.default_branch) {},
+  ],
+  variables: [
+    orgs.newRepoVariable('SONAR_ORGANIZATION') {
+      value: "eclipse-daanse",
+    },
+    orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+      value: "eclipse-daanse_%s" % repoName,
+    },
+  ],
+};
+
 orgs.newOrg('eclipse-daanse') {
+
   settings+: {
     description: "The Eclipse Daanse Project - Data Analysis Services",
     name: "Eclipse Daanse",
@@ -9,6 +44,7 @@ orgs.newOrg('eclipse-daanse') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+
   secrets+: [
     orgs.newOrgSecret('DASH_IPLAB_TOKEN') {
       value: "pass:bots/technology.daanse/gitlab.eclipse.org/api-token",
@@ -29,6 +65,7 @@ orgs.newOrg('eclipse-daanse') {
       value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-username",
     },
   ],
+
   _repositories+:: [
     orgs.newRepo('eclipse-daanse.github.io') {
       allow_squash_merge: false,
@@ -45,315 +82,48 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
     },
-    orgs.newRepo('.github') {
-      allow_merge_commit: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
+
+    newDaanseRepo('.github') {
       description: "github organisation repository, defaults for all other daanse Repositories",
-      has_wiki: false,
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
     },
-    orgs.newRepo('org.eclipse.daanse.assert.pdf') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
+    newDaanseRepo('org.eclipse.daanse.assert.pdf') {
       description: "Repository for the asserts on pdf",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.assert.pdf",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
     },
-    orgs.newRepo('org.eclipse.daanse.common') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
+    newDaanseRepo('org.eclipse.daanse.common') {
       description: "Repository for the common modules",
-      has_wiki: false,
-      secrets: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
-        },
-      ],
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.common",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
     },
-    orgs.newRepo('org.eclipse.daanse.pom') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the maven poms",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.pom",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('Tutorials') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the Tutorials",
-      has_wiki: false,
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.rolap.mapping') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the rolap mapping",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.rolap.mapping",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.webconsole.branding') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the webconsole branding",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.webconsole.branding",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.jdbc.db') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the jdbc related database utils",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.jdbc.db",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.jdbc.loader.csv') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the jdbc dataloader from csv",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.jdbc.loader.csv",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.io.fs.watcher') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the io watcher",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.io.fs.watcher",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.jdbc.datasource.metatype.h2') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the datasoure metatype support for h2",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.jdbc.datasource.metatype.h2",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.jakarta.servlet') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
-      description: "Repository for the jakarta servlet related modules",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.jakarta.servlet",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },
-    orgs.newRepo('org.eclipse.daanse.emf.dbmapping') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
+    newDaanseRepo('org.eclipse.daanse.emf.dbmapping') {
       description: "Repository for the emf dbmapping related modules",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.emf.dbmapping",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
     },
-    orgs.newRepo('org.eclipse.daanse.xmla') {
-      allow_squash_merge: false,
-      allow_update_branch: false,
-      delete_branch_on_merge: false,
-      dependabot_security_updates_enabled: true,
+    newDaanseRepo('org.eclipse.daanse.io.fs.watcher') {
+      description: "Repository for the io watcher",
+    },
+    newDaanseRepo('org.eclipse.daanse.jakarta.servlet') {
+      description: "Repository for the jakarta servlet related modules",
+    },
+    newDaanseRepo('org.eclipse.daanse.jdbc.datasource.metatype.h2') {
+      description: "Repository for the datasoure metatype support for h2",
+    },
+    newDaanseRepo('org.eclipse.daanse.jdbc.db') {
+      description: "Repository for the jdbc related database utils",
+    },
+    newDaanseRepo('org.eclipse.daanse.jdbc.loader.csv') {
+      description: "Repository for the jdbc dataloader from csv",
+    },
+    newDaanseRepo('org.eclipse.daanse.pom') {
+      description: "Repository for the maven poms",
+    },
+    newDaanseRepo('org.eclipse.daanse.rolap.mapping') {
+      description: "Repository for the rolap mapping",
+    },
+    newDaanseRepo('org.eclipse.daanse.webconsole.branding') {
+      description: "Repository for the webconsole branding",
+    },
+    newDaanseRepo('org.eclipse.daanse.xmla') {
       description: "Repository for the common modules",
-      has_wiki: false,
-      variables: [
-        orgs.newRepoVariable('SONAR_ORGANIZATION') {
-          value: "eclipse-daanse",
-        },
-        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
-          value: "eclipse-daanse_org.eclipse.daanse.xmla",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('main') {
-          required_approving_review_count: 0,
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
+    },
+    newDaanseRepo('Tutorials') {
+      description: "Repository for the Tutorials",
     },
   ],
 }
