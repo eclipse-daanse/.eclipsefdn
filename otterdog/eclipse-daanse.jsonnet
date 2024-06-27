@@ -171,6 +171,167 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
     },
+    orgs.newRepo('org.eclipse.daanse.webconsole.branding') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the webconsole branding",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.webconsole.branding",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.jdbc.db') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the jdbc related database utils",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.jdbc.db",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.jdbc.loader.csv') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the jdbc dataloader from csv",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.jdbc.loader.csv",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.io.fs.watcher') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the io watcher",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.io.fs.watcher",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.jdbc.datasource.metatype.h2') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the datasoure metatype support for h2",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.jdbc.datasource.metatype.h2",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.jakarta.servlet') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the jakarta servlet related modules",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.jakarta.servlet",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
+    orgs.newRepo('org.eclipse.daanse.emf.dbmapping') {
+      allow_squash_merge: false,
+      allow_update_branch: false,
+      delete_branch_on_merge: false,
+      dependabot_security_updates_enabled: true,
+      description: "Repository for the emf dbmapping related modules",
+      has_wiki: false,
+      variables: [
+        orgs.newRepoVariable('SONAR_ORGANIZATION') {
+          value: "eclipse-daanse",
+        },
+        orgs.newRepoVariable('SONAR_PROJECT_KEY') {
+          value: "eclipse-daanse_org.eclipse.daanse.emf.dbmapping",
+        },
+      ],
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('main') {
+          required_approving_review_count: 0,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
+    },
     orgs.newRepo('org.eclipse.daanse.xmla') {
       allow_squash_merge: false,
       allow_update_branch: false,
