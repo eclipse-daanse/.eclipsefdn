@@ -18,16 +18,13 @@ local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) 
   web_commit_signoff_required: false,
   secrets: [
     orgs.newRepoSecret('SONAR_TOKEN') {
-      value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-common",
+      value: "pass:bots/technology.daanse/sonarcloud.io/token-eclipse-daanse-%s" % repoName,
     },
   ],
   branch_protection_rules: [
     daanseBranchProtectionRule($.default_branch) {},
   ],
   variables: [
-    orgs.newRepoVariable('SONAR_ORGANIZATION') {
-      value: "eclipse-daanse",
-    },
     orgs.newRepoVariable('SONAR_PROJECT_KEY') {
       value: "eclipse-daanse_%s" % repoName,
     },
@@ -44,6 +41,12 @@ orgs.newOrg('eclipse-daanse') {
       actions_can_approve_pull_request_reviews: false,
     },
   },
+
+  variables+: [
+    orgs.newOrgVariable('SONAR_ORGANIZATION') {
+      value: "eclipse-daanse",
+    },
+  ],
 
   secrets+: [
     orgs.newOrgSecret('DASH_IPLAB_TOKEN') {
