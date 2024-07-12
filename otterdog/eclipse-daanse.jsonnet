@@ -95,6 +95,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.common') {
       description: "Repository for the common modules",
     },
+    newDaanseRepo('org.eclipse.daanse.rdb') {
+      description: "Repository for the relational database related modules",
+    },
     newDaanseRepo('org.eclipse.daanse.emf.dbmapping') {
       description: "Repository for the emf dbmapping related modules",
     },
@@ -123,7 +126,7 @@ orgs.newOrg('eclipse-daanse') {
       description: "Repository for the webconsole branding",
     },
     newDaanseRepo('org.eclipse.daanse.xmla') {
-      description: "Repository for the common modules",
+      description: "Repository for the xmla modules",
     },
     newDaanseRepo('Tutorials') {
       description: "Repository for the Tutorials",
