@@ -98,6 +98,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.rdb') {
       description: "Repository for the relational database related modules",
     },
+    newDaanseRepo('org.eclipse.daanse.emf.model') {
+      description: "Repository for the emf models used in daanse",
+    },
     newDaanseRepo('org.eclipse.daanse.emf.dbmapping') {
       description: "Repository for the emf dbmapping related modules",
     },
