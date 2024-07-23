@@ -109,7 +109,7 @@ orgs.newOrg('eclipse-daanse') {
     },
     newDaanseRepo('org.eclipse.daanse.jdbc.datasource') {
       aliases: ['org.eclipse.daanse.jdbc.datasource.metatype.h2'],
-      description: "Repository for the datasoure support",
+      description: "Repository for the datasource support",
     },
     newDaanseRepo('org.eclipse.daanse.jdbc.db') {
       description: "Repository for the jdbc related database utils",
