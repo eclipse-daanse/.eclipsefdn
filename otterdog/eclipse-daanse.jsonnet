@@ -92,9 +92,6 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.assert.pdf') {
       description: "Repository for the asserts on pdf",
     },
-    newDaanseRepo('org.eclipse.daanse.common') {
-      description: "Repository for the common modules",
-    },
     newDaanseRepo('org.eclipse.daanse.rdb') {
       description: "Repository for the relational database related modules",
     },
