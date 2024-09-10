@@ -120,12 +120,6 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.assert.pdf') {
       description: "Repository for the asserts on pdf",
     },
-    newDaanseRepo('org.eclipse.daanse.rdb') {
-      description: "Repository for the relational database related modules",
-    },
-    newDaanseRepo('org.eclipse.daanse.sql') {
-      description: "Repository for the sql related modules",
-    },
     newDaanseRepo('org.eclipse.daanse.emf.model') {
       description: "Repository for the emf models used in daanse",
     },
@@ -157,8 +151,17 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.pom') {
       description: "Repository for the maven poms",
     },
+    newDaanseRepo('org.eclipse.daanse.rdb') {
+      description: "Repository for the relational database related modules",
+    },
+    newDaanseRepo('org.eclipse.daanse.report') {
+      description: "Repository for the report related modules",
+    },
     newDaanseRepo('org.eclipse.daanse.rolap.mapping') {
       description: "Repository for the rolap mapping",
+    },
+    newDaanseRepo('org.eclipse.daanse.sql') {
+      description: "Repository for the sql related modules",
     },
     newDaanseRepo('org.eclipse.daanse.webconsole.branding') {
       description: "Repository for the webconsole branding",
