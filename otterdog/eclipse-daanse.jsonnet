@@ -117,9 +117,6 @@ orgs.newOrg('eclipse-daanse') {
         },
       ],
     },    
-    newDaanseRepo('org.eclipse.daanse.assert.pdf') {
-      description: "Repository for the asserts on pdf",
-    },
     newDaanseRepo('org.eclipse.daanse.emf.model') {
       description: "Repository for the emf models used in daanse",
     },
