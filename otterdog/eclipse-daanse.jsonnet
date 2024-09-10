@@ -95,28 +95,8 @@ orgs.newOrg('eclipse-daanse') {
       ],
     },
     newDaanseRepo('legacy.xmla') {
-      gh_pages_build_type: "legacy",
-      gh_pages_source_branch: "main_old",
-      gh_pages_source_path: "/docs",
-      has_wiki: true,
-      homepage: null,
-      private_vulnerability_reporting_enabled: true,
-      web_commit_signoff_required: true,
-      secrets+: [
-        orgs.newRepoSecret('SONAR_TOKEN') {
-          value: "********",
-        },
-      ],
-      branch_protection_rules: [
-        orgs.newBranchProtectionRule('foo') {
-          is_admin_enforced: true,
-          required_approving_review_count: 0,
-          required_status_checks: [],
-          requires_linear_history: true,
-          requires_strict_status_checks: true,
-        },
-      ],
-    },    
+      description: "Repository that hold old/legacy sources. To be split/migrated into new Repository.",
+     },
     newDaanseRepo('org.eclipse.daanse.emf.model') {
       description: "Repository for the emf models used in daanse",
     },
