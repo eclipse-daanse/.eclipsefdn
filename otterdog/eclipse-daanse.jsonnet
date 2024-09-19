@@ -33,7 +33,7 @@ orgs.newOrg('eclipse-daanse') {
   },
 
   secrets+: [
-    orgs.newOrgSecret('DASH_IPLAB_TOKEN') {
+    orgs.newOrgSecret('GITLAB_API_TOKEN') {
       value: "pass:bots/technology.daanse/gitlab.eclipse.org/api-token",
     },
     orgs.newOrgSecret('ORG_GPG_KEY_ID') {
