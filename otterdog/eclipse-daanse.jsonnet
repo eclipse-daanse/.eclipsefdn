@@ -85,6 +85,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('legacy.xmla') {
       description: "Repository that hold old/legacy sources. To be split/migrated into new Repository.",
      },
+    newDaanseRepo('org.eclipse.daanse.board.app') {
+      description: "Repository for the analysis board application",
+    },
     newDaanseRepo('org.eclipse.daanse.board.server') {
       description: "Repository for the optional server components of the board",
     },
