@@ -51,6 +51,9 @@ orgs.newOrg('eclipse-daanse') {
     orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
       value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-username",
     },
+    orgs.newOrgSecret('NPMJS_TOKEN') {
+      value: "pass:bots/technology.daanse/npmjs.com/token",
+    },
   ],
 
   _repositories+:: [
