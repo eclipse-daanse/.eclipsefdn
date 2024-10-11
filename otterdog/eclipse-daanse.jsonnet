@@ -33,10 +33,10 @@ orgs.newOrg('eclipse-daanse') {
   },
 
   secrets+: [        
-    orgs.newRepoSecret('DOCKER_USERNAME') {
+    orgs.newOrgSecret('DOCKER_USERNAME') {
       value: "pass:bots/technology.daanse/docker.com/username",
     },
-    orgs.newRepoSecret('DOCKER_TOKEN') {
+    orgs.newOrgSecret('DOCKER_TOKEN') {
       value: "pass:bots/technology.daanse/docker.com/api-token",
     },
     orgs.newOrgSecret('GITLAB_API_TOKEN') {
