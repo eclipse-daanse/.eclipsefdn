@@ -115,6 +115,9 @@ orgs.newOrg('eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.jakarta.servlet') {
       description: "Repository for the jakarta servlet related modules",
     },
+    newDaanseRepo('org.eclipse.daanse.jakarta.xml.ws') {
+      description: "Repository for the jakarta xml ws modules",
+    },
     newDaanseRepo('org.eclipse.daanse.jdbc.datasource') {
       aliases: ['org.eclipse.daanse.jdbc.datasource.metatype.h2'],
       description: "Repository for the datasource support",
