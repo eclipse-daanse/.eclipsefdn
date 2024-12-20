@@ -97,6 +97,15 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.board.app') {
       description: "Repository for the analysis board application",
     },
+    newDaanseRepo('org.eclipse.daanse.datafinder.core') {
+      description: "Repository for datafinder dcatap and rdf components",
+    },
+    newDaanseRepo('org.eclipse.daanse.datafinder.sparql') {
+      description: "Repository for the sparql query component",
+    },
+    newDaanseRepo('org.eclipse.daanse.board.datafinder.connector') {
+      description: "Repository for the board connector to datafinder",
+    },
     newDaanseRepo('org.eclipse.daanse.board.server') {
       description: "Repository for the optional server components of the board",
     },
