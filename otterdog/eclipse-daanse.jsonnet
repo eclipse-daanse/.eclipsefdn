@@ -97,6 +97,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.board.app') {
       description: "Repository for the analysis board application",
     },
+    newDaanseRepo('org.eclipse.daanse.board.model') {
+      description: "Repository for the models of the board components",
+    },
     newDaanseRepo('org.eclipse.daanse.board.server') {
       description: "Repository for the optional server components of the board",
     },
