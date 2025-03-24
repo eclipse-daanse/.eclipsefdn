@@ -98,9 +98,7 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       description: "Repository for the analysis board application",
       code_scanning_default_setup_enabled: true,
       code_scanning_default_languages: [
-        'javascript',
-        'javascript-typescript',
-        'typescript'
+        'actions'
       ],
     },
     newDaanseRepo('org.eclipse.daanse.board.model') {
