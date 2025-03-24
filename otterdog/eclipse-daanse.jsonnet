@@ -85,9 +85,7 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('legacy.dashboard.client') {
       code_scanning_default_setup_enabled: true,
       code_scanning_default_languages: [
-        'javascript',
-        'javascript-typescript',
-        'typescript'
+        'javascript-typescript'
       ],
       gh_pages_build_type: "workflow"
     },
