@@ -95,9 +95,7 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.board.app') {
       description: "Repository for the analysis board application",
       code_scanning_default_setup_enabled: true,
-      code_scanning_default_languages: [
-        'javascript-typescript',
-      ],
+      code_scanning_default_languages: ['javascript', 'typescript']
       secrets+: [
         orgs.newRepoSecret('ARGOS_TOKEN') {
           value: "pass:bots/technology.daanse/argos-ci.com/token",
