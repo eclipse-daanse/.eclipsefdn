@@ -66,7 +66,7 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     orgs.newRepo('eclipse-daanse.github.io') {
       allow_squash_merge: false,
       allow_update_branch: false,
-      gh_pages_build_type: "legacy",
+      gh_pages_build_type: "workflow",
       gh_pages_source_branch: "main",
       gh_pages_source_path: "/",
       environments: [
