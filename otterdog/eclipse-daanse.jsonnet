@@ -51,11 +51,11 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     orgs.newOrgSecret('ORG_GPG_PRIVATE_KEY') {
       value: "pass:bots/technology.daanse/gpg/secret-subkeys.asc",
     },
-    orgs.newOrgSecret('ORG_OSSRH_PASSWORD') {
-      value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-password",
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_PASSWORD') {
+      value: "pass:bots/technology.daanse/central.sonatype.org/token-password",
     },
-    orgs.newOrgSecret('ORG_OSSRH_USERNAME') {
-      value: "pass:bots/technology.daanse/oss.sonatype.org/gh-token-username",
+    orgs.newOrgSecret('CENTRAL_SONATYPE_TOKEN_USERNAME') {
+      value: "pass:bots/technology.daanse/central.sonatype.org/token-username",
     },
     orgs.newOrgSecret('NPMJS_TOKEN') {
       value: "pass:bots/technology.daanse/npmjs.com/token",
@@ -86,8 +86,6 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       code_scanning_default_setup_enabled: true,
       code_scanning_default_languages: [
         'javascript-typescript',
-        'javascript',
-        'typescript',
       ],
       gh_pages_build_type: "workflow"
     },
@@ -99,8 +97,6 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       code_scanning_default_setup_enabled: true,
       code_scanning_default_languages: [
         'javascript-typescript',
-        'javascript',
-        'typescript',
       ],
       secrets+: [
         orgs.newRepoSecret('ARGOS_TOKEN') {
