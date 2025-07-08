@@ -14,7 +14,7 @@ local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) 
   delete_branch_on_merge: false,
   dependabot_security_updates_enabled: true,
   has_wiki: false,
-  homepage: "https://www.daanse.org",
+  homepage: "https://daanse.org",
   web_commit_signoff_required: false,
   branch_protection_rules: [
     daanseBranchProtectionRule($.default_branch) {},
