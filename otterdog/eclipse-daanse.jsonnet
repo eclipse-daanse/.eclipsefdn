@@ -160,6 +160,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.rolap.mapping') {
       description: "Repository for the rolap mapping",
     },
+    newDaanseRepo('org.eclipse.daanse.server.app') {
+      description: "Repository for the sql related modules",
+    },
     newDaanseRepo('org.eclipse.daanse.sql') {
       description: "Repository for the sql related modules",
     },
