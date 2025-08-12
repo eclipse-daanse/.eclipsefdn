@@ -136,6 +136,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.jdbc.db') {
       description: "Repository for the jdbc related database utils",
     },
+    newDaanseRepo('org.eclipse.daanse.lcid') {
+      description: "Repository for the lcid related database utils",
+    },
     newDaanseRepo('org.eclipse.daanse.mdx') {
       description: "Repository for the mdx - multi dimensional expressions",
     },
