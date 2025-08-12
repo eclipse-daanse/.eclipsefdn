@@ -169,6 +169,10 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.sql') {
       description: "Repository for the sql related modules",
     },
+
+    newDaanseRepo('org.eclipse.daanse.tooling') {
+      description: "Repository for the tooling related modules",
+    },
     newDaanseRepo('org.eclipse.daanse.webconsole.branding') {
       description: "Repository for the webconsole branding",
     },
