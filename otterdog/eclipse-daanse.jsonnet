@@ -7,7 +7,7 @@ local daanseBranchProtectionRule(branchName) = orgs.newBranchProtectionRule(bran
   requires_strict_status_checks: true,
 };
 
-local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) {
+local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) {odf
   allow_squash_merge: false,
   allow_update_branch: false,
   default_branch: default_branch,
@@ -147,6 +147,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     },
     newDaanseRepo('org.eclipse.daanse.rolap') {
       description: "Repository for the rolap",
+    },
+    newDaanseRepo('org.eclipse.daanse.odf') {
+      description: "Repository for the odf",
     },
     newDaanseRepo('org.eclipse.daanse.operation') {
       description: "Repository for the operation",
