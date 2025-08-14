@@ -7,7 +7,7 @@ local daanseBranchProtectionRule(branchName) = orgs.newBranchProtectionRule(bran
   requires_strict_status_checks: true,
 };
 
-local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) {odf
+local newDaanseRepo(repoName, default_branch = 'main') = orgs.newRepo(repoName) {
   allow_squash_merge: false,
   allow_update_branch: false,
   default_branch: default_branch,
