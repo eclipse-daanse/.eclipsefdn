@@ -145,6 +145,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.olap') {
       description: "Repository for the olap",
     },
+    newDaanseRepo('org.eclipse.daanse.volap') {
+      description: "Repository for the volap",
+    },
     newDaanseRepo('org.eclipse.daanse.rolap') {
       description: "Repository for the rolap",
     },
