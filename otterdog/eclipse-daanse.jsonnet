@@ -160,6 +160,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.operation') {
       description: "Repository for the operation",
     },
+    newDaanseRepo('org.eclipse.daanse.otlp') {
+      description: "Repository for the opentelemetry",
+    },
     newDaanseRepo('org.eclipse.daanse.pom') {
       description: "Repository for the maven poms",
     },
