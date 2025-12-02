@@ -111,6 +111,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.board.server') {
       description: "Repository for the optional server components of the board",
     },
+    newDaanseRepo('org.eclipse.daanse.cwm') {
+      description: "Repository for the cwm",
+    },
     newDaanseRepo('org.eclipse.daanse.dax') {
       description: "Repository for the dax language used in daanse",
     },
