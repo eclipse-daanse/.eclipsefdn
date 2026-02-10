@@ -203,5 +203,8 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('Tutorials') {
       description: "Repository for the Tutorials",
     },
+    newDaanseRepo('org.eclipse.daanse.r') {
+      description: "Repository for R related code",
+    },
   ],
 }
