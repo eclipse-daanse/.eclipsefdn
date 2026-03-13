@@ -106,15 +106,6 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       ],
     },
 
-    newDaanseRepo('org.eclipse.daanse.gene.core') {
-      description: "Repository for the gene core",
-      code_scanning_default_setup_enabled: true,
-      code_scanning_default_languages: [
-        'actions',
-        'javascript-typescript',
-      ],
-    },
-
     newDaanseRepo('org.eclipse.daanse.gene') {
       description: "Repository for the gene",
       code_scanning_default_setup_enabled: true,
