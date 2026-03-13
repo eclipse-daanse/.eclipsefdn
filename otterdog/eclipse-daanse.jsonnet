@@ -115,6 +115,23 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       ],
     },
 
+    newDaanseRepo('org.eclipse.daanse.gene') {
+      description: "Repository for the gene",
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'actions',
+        'javascript-typescript',
+      ],
+    },
+
+    newDaanseRepo('org.eclipse.daanse.tms') {
+      description: "Repository for the typescript module system",
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'actions',
+        'javascript-typescript',
+      ],
+    },
 
     newDaanseRepo('org.eclipse.daanse.board.model') {
       description: "Repository for the models of the board components",
