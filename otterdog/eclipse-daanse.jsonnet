@@ -136,6 +136,9 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.daanse.dax') {
       description: "Repository for the dax language used in daanse",
     },
+    newDaanseRepo('org.eclipse.daanse.etl') {
+      description: "Repository for the etl modules",
+    },
     newDaanseRepo('org.eclipse.daanse.emf.model') {
       description: "Repository for the emf models used in daanse",
     },
