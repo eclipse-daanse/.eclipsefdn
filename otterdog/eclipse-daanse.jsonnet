@@ -123,7 +123,22 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
         'javascript-typescript',
       ],
     },
-
+    newDaanseRepo('org.eclipse.daanse.feel.lsp.worker') {
+      description: "Repository for feel lsp",
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'actions',
+        'javascript-typescript',
+      ],
+    },
+    newDaanseRepo('org.eclipse.daanse.feel.langium') {
+      description: "Repository for feel grammar",
+      code_scanning_default_setup_enabled: true,
+      code_scanning_default_languages: [
+        'actions',
+        'javascript-typescript',
+      ],
+    },
     newDaanseRepo('org.eclipse.daanse.board.model') {
       description: "Repository for the models of the board components",
     },
