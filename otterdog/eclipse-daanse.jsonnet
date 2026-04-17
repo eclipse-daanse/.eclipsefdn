@@ -113,6 +113,15 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
         'actions',
         'javascript-typescript',
       ],
+      gh_pages_build_type: "workflow",
+      environments: [
+        orgs.newEnvironment('github-pages') {
+          branch_policies+: [
+            "main"
+          ],
+          deployment_branch_policy: "selected",
+        },
+      ],
     },
 
     newDaanseRepo('org.eclipse.daanse.tsm') {
