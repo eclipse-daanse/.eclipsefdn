@@ -115,7 +115,8 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
       ],
     },
 
-    newDaanseRepo('org.eclipse.daanse.tms') {
+    newDaanseRepo('org.eclipse.daanse.tsm') {
+      aliases: ['org.eclipse.daanse.tms'],
       description: "Repository for the typescript module system",
       code_scanning_default_setup_enabled: true,
       code_scanning_default_languages: [
