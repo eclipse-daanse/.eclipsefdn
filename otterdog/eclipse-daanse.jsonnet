@@ -263,10 +263,6 @@ orgs.newOrg('technology.daanse', 'eclipse-daanse') {
     newDaanseRepo('org.eclipse.xmla.client.emf.ts') {
       description: "EMFts based XMLA Ts Client",
       code_scanning_default_setup_enabled: true,
-      code_scanning_default_languages: [
-        'actions',
-        'javascript-typescript',
-      ],
     },
   ],
 }
